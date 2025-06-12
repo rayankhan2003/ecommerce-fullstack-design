@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 
 export default function UserPanel() {
   return (
-    <div className="space-y-4">
-      {/* User Login Panel with E3F0FF background */}
-      <div className="rounded-md p-3" style={{ backgroundColor: "#E3F0FF", width: "200px", height: "150px" }}>
+    <div className="hidden lg:block space-y-4">
+      {/* User Login Panel */}
+      <div className="rounded-md p-3 bg-[#E3F0FF] h-[150px]">
         <div className="flex items-center space-x-2 mb-3">
           <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
             <svg
@@ -27,26 +27,31 @@ export default function UserPanel() {
             <p className="text-xs text-gray-500">let's get started</p>
           </div>
         </div>
-        <div className="space-y-2">
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-xs py-1.5">Join now</Button>
-          <Button variant="outline" className="w-full text-blue-600 border-blue-600 hover:bg-blue-50 text-xs py-1.5">
+        <div className="space-y-2 ">
+          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-xs py-1.5">
+            Join now
+          </Button>
+          <Button
+            variant="outline"
+            className="w-full text-blue-600 border-blue-600 hover:bg-blue-50 text-xs py-1.5"
+          >
             Log in
           </Button>
         </div>
       </div>
 
       {/* Promo Panels */}
-      <div className="bg-orange-400 rounded-md p-3 text-white" style={{ width: "200px", height: "95px" }}>
+      <div className="bg-orange-400 rounded-md p-3 text-white h-[95px]">
         <p className="font-medium text-xs">Get US $10 off</p>
         <p className="text-xs">with a new</p>
         <p className="text-xs">supplier</p>
       </div>
 
-      <div className="bg-teal-500 rounded-md p-3 text-white" style={{ width: "200px", height: "95px" , marginBottom : "5px"  }}>
+      <div className="bg-teal-500 rounded-md p-3 text-white h-[95px] mb-1.5">
         <p className="font-medium text-xs">Send quotes with</p>
         <p className="text-xs">supplier</p>
         <p className="text-xs">preferences</p>
       </div>
     </div>
-  )
+  );
 }

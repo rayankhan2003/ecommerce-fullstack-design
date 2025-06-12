@@ -1,36 +1,28 @@
+// components/HeroBanner.tsx
 import { Button } from '@/components/ui/button';
 
 export default function HeroBanner() {
   return (
-    <div
-      className="overflow-hidden relative"
-      style={{ width: '665px', height: '360px' }}
-    >
-      {/* Full background image */}
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          src="/images/hero-banner.png"
-          alt="Electronic items - laptop, headphones, and smartphone"
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
+    <div className="relative overflow-hidden w-full  h-[180px] sm:h-[360px]">
+      {/* Background image */}
+      <img
+        src="/images/hero-banner.png"
+        alt="Electronic items"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
 
-      {/* Content positioned on the left side */}
-      <div className="relative z-10 h-full p-6 flex flex-col justify-center">
-        <div className="max-w-xs">
-          <p className="text-lg text-gray-800 font-medium mb-1">
-            Latest trending
-          </p>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Electronic items
-          </h2>
-          <Button
-            variant="outline"
-            className="bg-white hover:bg-gray-100 text-gray-800 border-gray-300 px-6 py-2"
-          >
-            Learn more
-          </Button>
-        </div>
+      {/* Overlay content */}
+      <div className="relative z-10 h-full p-4 sm:p-6 flex flex-col items-start text-black">
+        <p className="text-sm sm:text-lg font-medium mr-2">Latest trending</p>
+        <h2 className="text-xl sm:text-3xl font-bold mb-3 mr-2">
+          Electronic items
+        </h2>
+        <Button
+          variant="outline"
+          className="bg-white hover:bg-gray-100 text-blue-500 border-gray-300 px-2.5 py-[7px] sm:px-6 sm:py-0"
+        >
+          Learn more
+        </Button>
       </div>
     </div>
   );
