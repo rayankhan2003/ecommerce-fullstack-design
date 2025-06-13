@@ -42,6 +42,14 @@ export default function Home() {
 
       {/* Home and Outdoor Section */}
       <HomeOutdoorSection />
+      {/* Customer Electronics Section  */}
+      <ConsumerElectronicsSection />
+      {/* Supplier Request Section */}
+      <main className="w-full lg:px-4 lg:pt-4">
+        <div className="bg-white lg:rounded-lg shadow-sm p-0 lg:p-0 lg:mb-4 max-w-screen-xl mx-auto">
+          <SupplierRequestSection />
+        </div>
+      </main>
     </div>
   );
 }

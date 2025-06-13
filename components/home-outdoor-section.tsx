@@ -101,7 +101,7 @@ export default function HomeOutdoorSection() {
         </div>
       </div>
 
-      {/* Mobile & md screens — horizontal scroll */}
+      {/* Scrollable products */}
       <div className="lg:hidden px-4 pb-4 overflow-x-auto">
         <div className="flex gap-4 w-max">
           {products.map((product, index) => (
@@ -123,6 +123,30 @@ export default function HomeOutdoorSection() {
               <p className="text-sm text-gray-700">{product.price}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Source now link */}
+      <div className="lg:hidden  pb-4">
+        <div className=" w-full bg-white border rounded-md p-4 flex items-center justify-between shadow-sm">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 px-5 text-xl font-medium text-[#0D6EFD] bg-white  rounded-md hover:bg-blue-50 transition"
+          >
+            Source now{' '}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.00008 0.666687L6.70758 1.95919L11.8226 7.08335H0.666748V8.91669H11.8226L6.70758 14.0409L8.00008 15.3334L15.3334 8.00002L8.00008 0.666687Z"
+                fill="#0D6EFD"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
