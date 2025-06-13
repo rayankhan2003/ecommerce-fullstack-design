@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <EcommerceHeader />
-      <main className="w-full  lg:px-4 ">
-        <div className="bg-white lg:rounded-lg shadow-sm p-0 lg:p-6 mb-4 max-w-screen-xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-4">
+      <main className="w-full  lg:px-4 lg:pt-4 ">
+        <div className="bg-white lg:rounded-lg shadow-sm p-0 lg:p-6 lg:mb-4 max-w-screen-xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:gap-4">
             {/* Sidebar */}
             <div className="w-full lg:w-[220px] mr-4">
               <CategorySidebar />
@@ -39,6 +39,9 @@ export default function Home() {
 
       {/*  Deals Section */}
       <DealsSection />
+
+      {/* Home and Outdoor Section */}
+      <HomeOutdoorSection />
     </div>
   );
 }
