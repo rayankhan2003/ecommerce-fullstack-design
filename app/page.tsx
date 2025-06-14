@@ -50,6 +50,30 @@ export default function Home() {
           <SupplierRequestSection />
         </div>
       </main>
+
+      {/* Recommended items Section */}
+      <div className="bg-white lg:rounded-lg shadow-sm p-4 max-w-screen-xl mx-auto mb-4">
+        <RecommendedItems />
+      </div>
+
+      {/* Extra services Section */}
+      <div className="bg-white lg:rounded-lg shadow-sm p-4 max-w-screen-xl mx-auto mb-4">
+        <ExtraServices />
+      </div>
+
+      {/* Suppliers by region Section */}
+      <div>
+        <SuppliersByRegion />
+      </div>
+      {/* Newsletter subcription Section */}
+      <div>
+        <NewsletterSubscription />
+      </div>
+
+      {/* Footer Section */}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

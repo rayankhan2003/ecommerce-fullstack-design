@@ -2,84 +2,88 @@ export default function SuppliersByRegion() {
   const regions = [
     {
       id: 1,
-      country: "Arab Emirates",
-      flag: "/images/flags/uae.png",
-      suppliers: "shopname.ae",
+      country: 'Arab Emirates',
+      flag: '/images/flags/uae.png',
+      suppliers: 'shopname.ae',
     },
     {
       id: 2,
-      country: "Australia",
-      flag: "/images/flags/australia.png",
-      suppliers: "shopname.au",
+      country: 'Australia',
+      flag: '/images/flags/australia.png',
+      suppliers: 'shopname.au',
     },
     {
       id: 3,
-      country: "United States",
-      flag: "/images/flags/usa.png",
-      suppliers: "shopname.us",
+      country: 'United States',
+      flag: '/images/flags/usa.png',
+      suppliers: 'shopname.us',
     },
     {
       id: 4,
-      country: "Russia",
-      flag: "/images/flags/russia.png",
-      suppliers: "shopname.ru",
+      country: 'Russia',
+      flag: '/images/flags/russia.png',
+      suppliers: 'shopname.ru',
     },
     {
       id: 5,
-      country: "Italy",
-      flag: "/images/flags/italy.png",
-      suppliers: "shopname.it",
+      country: 'Italy',
+      flag: '/images/flags/italy.png',
+      suppliers: 'shopname.it',
     },
     {
       id: 6,
-      country: "Denmark",
-      flag: "/images/flags/denmark.png",
-      suppliers: "shopname.dk",
+      country: 'Denmark',
+      flag: '/images/flags/denmark.png',
+      suppliers: 'shopname.dk',
     },
     {
       id: 7,
-      country: "France",
-      flag: "/images/flags/france.png",
-      suppliers: "shopname.fr",
+      country: 'France',
+      flag: '/images/flags/france.png',
+      suppliers: 'shopname.fr',
     },
     {
       id: 8,
-      country: "Arab Emirates",
-      flag: "/images/flags/uae-alt.png",
-      suppliers: "shopname.ae",
+      country: 'Arab Emirates',
+      flag: '/images/flags/uae-alt.png',
+      suppliers: 'shopname.ae',
     },
     {
       id: 9,
-      country: "China",
-      flag: "/images/flags/china.png",
-      suppliers: "shopname.cn",
+      country: 'China',
+      flag: '/images/flags/china.png',
+      suppliers: 'shopname.cn',
     },
     {
       id: 10,
-      country: "Great Britain",
-      flag: "/images/flags/uk.png",
-      suppliers: "shopname.co.uk",
+      country: 'Great Britain',
+      flag: '/images/flags/uk.png',
+      suppliers: 'shopname.co.uk',
     },
-  ]
+  ];
 
   return (
-    <div className="bg-white rounded-md p-6 shadow-sm" style={{ width: "1180px" }}>
-      <h3 className="text-xl font-bold text-gray-900 mb-4">Suppliers by region</h3>
+    <section className=" rounded-md p-4 sm:p-6 shadow-sm w-full max-w-screen-xl mx-auto">
+      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
+        Suppliers by region
+      </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {regions.map((region) => (
-          <div key={region.id} className="flex items-center space-x-2">
+          <div key={region.id} className="flex items-center gap-3 p-3">
             <img
-              src={region.flag || "/placeholder.svg?height=24&width=36"}
+              src={region.flag || '/placeholder.svg?height=24&width=36'}
               alt={`${region.country} flag`}
-              className="w-6 h-4 object-cover rounded-sm border border-gray-200"
+              className="w-8 h-5 object-cover"
             />
             <div>
-              <p className="text-sm font-medium">{region.country}</p>
+              <p className="text-sm font-semibold text-gray-900">
+                {region.country}
+              </p>
               <p className="text-xs text-gray-500">{region.suppliers}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  )
+    </section>
+  );
 }
