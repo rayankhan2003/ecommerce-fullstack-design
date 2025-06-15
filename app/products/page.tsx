@@ -1,7 +1,7 @@
-import { Suspense } from "react"
-import EcommerceHeader from "@/components/ecommerce-header"
-import Footer from "@/components/footer"
-import ProductListing from "@/components/product-listing"
+import { Suspense } from 'react';
+import EcommerceHeader from '@/components/ecommerce-header';
+import Footer from '@/components/footer';
+import ProductListing from '@/components/product-listing';
 
 export default function ProductsPage() {
   return (
@@ -12,5 +12,5 @@ export default function ProductsPage() {
       </Suspense>
       <Footer />
     </div>
-  )
+  );
 }

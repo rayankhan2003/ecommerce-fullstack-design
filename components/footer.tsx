@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Get App Section */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4">Get app</h3>
+            <h3 className="font-bold text-gray-900 mb-4 ml-5">Get app</h3>
             <div className="flex flex-col space-y-2">
               <img
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
