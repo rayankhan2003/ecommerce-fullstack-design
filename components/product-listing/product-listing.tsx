@@ -1,0 +1,223 @@
+// components/product-listing/product-listing.tsx
+
+'use client';
+import MobileHeader from '@components/product-listing/mobile-header';
+import MobileQuickLinks from '@components/product-listing/mobile-quick-links';
+import FilterSidebar from '@components/product-listing/filter-sidebar';
+import Breadcrumb from '@/components/product-listing/breadcrumb';
+import FilterToolbar from '@/components/product-listing/Filter-toolbar';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Heart, Star } from 'lucide-react';
+export default function ProductListing() {
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const products = [
+    {
+      id: 1,
+      name: 'Canon Cine EOS 2000 Black 16x zoom',
+      description:
+        'Professional-grade camera with 16x zoom, perfect for cinematic shots and high-resolution video production.',
+      price: 998.0,
+      originalPrice: 1128.0,
+      rating: 4.5,
+      reviews: 154,
+      image: '/images/products/iphone.png',
+      freeShipping: true,
+    },
+    {
+      id: 2,
+      name: 'GoPro HERO8 4K Action Camera - Black',
+      description:
+        'Capture every adventure in 4K with advanced stabilization and rugged waterproof design.',
+      price: 589.0,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 98,
+      image: '/images/products/smartphone.png',
+      freeShipping: true,
+    },
+    {
+      id: 3,
+      name: 'GoPro HERO8 4K Action Camera - Black',
+      description:
+        'Versatile action camera with wide-angle lens and excellent battery life for outdoor shooting.',
+      price: 998.0,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 76,
+      image: '/images/products/tablet.png',
+      freeShipping: true,
+    },
+    {
+      id: 4,
+      name: 'GoPro HERO8 4K Action Camera - Black',
+      description:
+        'Next-level performance in a compact body — great for vloggers, athletes, and filmmakers.',
+      price: 998.0,
+      originalPrice: 1128.0,
+      rating: 4.7,
+      reviews: 203,
+      image: '/images/products/laptop.png',
+      freeShipping: true,
+    },
+    {
+      id: 5,
+      name: 'GoPro HERO8 4K Action Camera - Black',
+      description:
+        'High-definition action cam with voice control and built-in mounting for ease of use.',
+      price: 998.0,
+      originalPrice: null,
+      rating: 4.4,
+      reviews: 89,
+      image: '/images/products/camera.png',
+      freeShipping: true,
+    },
+    {
+      id: 6,
+      name: 'GoPro HERO8 4K Action Camera - Black',
+      description:
+        '4K video recording, time warp, and live streaming support make this the ultimate action companion.',
+      price: 998.0,
+      originalPrice: 1128.0,
+      rating: 4.9,
+      reviews: 156,
+      image: '/images/products/smartwatch.png',
+      freeShipping: true,
+    },
+  ];
+
+  const categories = [
+    { name: 'Furniture', count: 120 },
+    { name: 'Electronics', count: 98 },
+    { name: 'Kitchen', count: 65 },
+    { name: 'Outdoor', count: 47 },
+  ];
+
+  const brands = [
+    { name: 'IKEA', checked: false },
+    { name: 'Samsung', checked: true },
+    { name: 'Apple', checked: false },
+    { name: 'Sony', checked: false },
+    { name: 'Whirlpool', checked: true },
+  ];
+
+  const features = [
+    { name: 'Wireless', checked: true },
+    { name: 'Eco-friendly', checked: false },
+    { name: 'Waterproof', checked: false },
+    { name: 'Compact', checked: true },
+  ];
+
+  return (
+    <div>
+      <MobileHeader />
+      <MobileQuickLinks
+        categories={['Tablets', 'Phones', 'iPod', 'iPad', 'Laptops']}
+        showOn="/products"
+      />
+      <div className="mx-auto w-full max-w-screen-xl px-8 py-4">
+        <Breadcrumb />
+
+        <div className="flex gap-6">
+          {/* Left: Sidebar */}
+          <FilterSidebar
+            categories={categories}
+            brands={brands}
+            features={features}
+          />
+
+          {/* Right: Toolbar + Products */}
+          <div className="flex-1">
+            <FilterToolbar
+              totalItems={12911}
+              currentCategory="Mobile accessory"
+              viewMode={viewMode}
+              setViewMode={setViewMode}
+            />
+            {/* Products Grid */}
+            <div
+              className={
+                viewMode === 'grid'
+                  ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'
+                  : 'space-y-4'
+              }
+            >
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-lg border p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="relative">
+                    <Link href={`/product/${product.id}`}>
+                      <img
+                        src={product.image || '/placeholder.svg'}
+                        alt={product.name}
+                        className="w-full h-48 object-contain mb-3"
+                      />
+                    </Link>
+                    <button className="absolute top-2 right-2 p-1">
+                      <Heart className="w-5 h-5 text-gray-400 hover:text-red-500" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-1">
+                      <span className="font-semibold text-lg">
+                        ${product.price.toFixed(2)}
+                      </span>
+                      {product.originalPrice && (
+                        <span className="text-sm text-gray-500 line-through">
+                          ${product.originalPrice.toFixed(2)}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center space-x-1">
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-3 h-3 ${
+                              i < Math.floor(product.rating)
+                                ? 'fill-yellow-400 text-yellow-400'
+                                : 'text-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      <span className="text-xs text-gray-500">
+                        ({product.reviews})
+                      </span>
+                      {product.freeShipping && (
+                        <span className="text-xs text-green-600">
+                          Free Shipping
+                        </span>
+                      )}
+                    </div>
+
+                    <Link href={`/product/${product.id}`}>
+                      <h3 className="text-sm font-medium text-gray-700 line-clamp-2 hover:text-blue-600">
+                        {product.name}
+                      </h3>
+                    </Link>
+
+                    <p className="text-xs text-gray-500 line-clamp-2">
+                      {product.description}
+                    </p>
+
+                    <Link
+                      href={`/product/${product.id}`}
+                      className="text-sm text-blue-600 hover:underline"
+                    >
+                      View details
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -24,7 +24,7 @@ import {
   ShoppingBag,
 } from 'lucide-react';
 import Link from 'next/link';
-
+import MobileQuickLinks from '@components/product-listing/mobile-quick-links';
 export default function EcommerceHeader() {
   return (
     <header className="bg-white border-b border-border overflow-x-hidden">
@@ -236,19 +236,7 @@ export default function EcommerceHeader() {
         </div>
       </div>
       {/* Mobile Quick Links - shown under search on small screens */}
-      <div className="block lg:hidden px-4 mt-3">
-        <div className="flex flex-wrap gap-2">
-          {['All Category', 'Hot Offers', 'Gift Boxes'].map((item) => (
-            <span
-              key={item}
-              className="text-xs bg-gray-100 text-[#377fe7] px-3 py-3 rounded-sm mb-3   cursor-pointer hover:bg-blue-100 hover:text-blue-600 transition"
-              style={{ fontSize: '18px' }}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <MobileQuickLinks showOn="/" />
     </header>
   );
 }
