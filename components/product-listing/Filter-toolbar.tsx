@@ -24,7 +24,7 @@ export default function FilterToolbar({
   setViewMode,
 }: FilterToolbarProps) {
   return (
-    <div className="flex flex-wrap items-center justify-between mb-2 bg-white px-1 py-2 rounded-md shadow-sm gap-y-3">
+    <div className="flex flex-wrap items-center justify-between px-2 mb-2 bg-white py-2 rounded-md shadow-sm gap-y-3">
       {/* Left: Total items and category (hidden on mobile) */}
       <div className="hidden md:block">
         <span className="text-sm text-gray-600">
@@ -54,10 +54,16 @@ export default function FilterToolbar({
           </SelectContent>
         </Select>
 
-        {/* Filters placeholder (you can replace this later) */}
-        <button className="text-sm text-blue-600 underline md:hidden">
-          Filters (3)
-        </button>
+        <Select>
+          <SelectTrigger className="w-32 md:hidden">
+            <SelectValue placeholder="Filters (3)" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="wireless">Wireless</SelectItem>
+            <SelectItem value="eco-friendly">Eco-friendly</SelectItem>
+            <SelectItem value="compact">Compact</SelectItem>
+          </SelectContent>
+        </Select>
 
         {/* Grid/List toggle */}
         <div className="flex border rounded overflow-hidden">

@@ -7,6 +7,9 @@ import FilterSidebar from '@components/product-listing/filter-sidebar';
 import Breadcrumb from '@/components/product-listing/breadcrumb';
 import FilterToolbar from '@/components/product-listing/Filter-toolbar';
 import ProductCard from '@/components/product-listing/product-card';
+import PaginationControls from '@components/product-listing/pagination-controls';
+import ActiveFilters from '@components/product-listing/active-filters';
+import NewsletterSection from '@/components/product-listing/newsletter-section';
 
 import { useState } from 'react';
 
@@ -108,6 +111,10 @@ export default function ProductListing() {
     { name: 'Waterproof', checked: false },
     { name: 'Compact', checked: true },
   ];
+  const [activeFilters, setActiveFilters] = useState<string[]>([
+    'Samsung',
+    'Wireless',
+  ]);
 
   return (
     <div>
@@ -116,7 +123,7 @@ export default function ProductListing() {
         categories={['Tablets', 'Phones', 'iPod', 'iPad', 'Laptops']}
         showOn="/products"
       />
-      <div className="mx-auto w-full max-w-screen-xl px-8 py-4">
+      <div className="mx-auto w-full max-w-screen-xl px-4 lg:px-8 py-4">
         <Breadcrumb />
 
         <div className="flex gap-6">
@@ -135,6 +142,14 @@ export default function ProductListing() {
               viewMode={viewMode}
               setViewMode={setViewMode}
             />
+            <div className="md:hidden mb-4">
+              <ActiveFilters
+                activeFilters={activeFilters}
+                onRemove={(filter) => {
+                  setActiveFilters((prev) => prev.filter((f) => f !== filter));
+                }}
+              />
+            </div>
             {/* Products Grid */}
             <div
               className={
@@ -151,8 +166,10 @@ export default function ProductListing() {
                 />
               ))}
             </div>
+            <PaginationControls />
           </div>
         </div>
+        <NewsletterSection />
       </div>
     </div>
   );
