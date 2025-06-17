@@ -6,9 +6,10 @@ import MobileQuickLinks from '@components/product-listing/mobile-quick-links';
 import FilterSidebar from '@components/product-listing/filter-sidebar';
 import Breadcrumb from '@/components/product-listing/breadcrumb';
 import FilterToolbar from '@/components/product-listing/Filter-toolbar';
+import ProductCard from '@/components/product-listing/product-card';
+
 import { useState } from 'react';
-import Link from 'next/link';
-import { Heart, Star } from 'lucide-react';
+
 export default function ProductListing() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const products = [
@@ -143,76 +144,11 @@ export default function ProductListing() {
               }
             >
               {products.map((product) => (
-                <div
+                <ProductCard
                   key={product.id}
-                  className="bg-white rounded-lg border p-4 hover:shadow-md transition-shadow"
-                >
-                  <div className="relative">
-                    <Link href={`/product/${product.id}`}>
-                      <img
-                        src={product.image || '/placeholder.svg'}
-                        alt={product.name}
-                        className="w-full h-48 object-contain mb-3"
-                      />
-                    </Link>
-                    <button className="absolute top-2 right-2 p-1">
-                      <Heart className="w-5 h-5 text-gray-400 hover:text-red-500" />
-                    </button>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-1">
-                      <span className="font-semibold text-lg">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      {product.originalPrice && (
-                        <span className="text-sm text-gray-500 line-through">
-                          ${product.originalPrice.toFixed(2)}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex items-center space-x-1">
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-3 h-3 ${
-                              i < Math.floor(product.rating)
-                                ? 'fill-yellow-400 text-yellow-400'
-                                : 'text-gray-300'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-xs text-gray-500">
-                        ({product.reviews})
-                      </span>
-                      {product.freeShipping && (
-                        <span className="text-xs text-green-600">
-                          Free Shipping
-                        </span>
-                      )}
-                    </div>
-
-                    <Link href={`/product/${product.id}`}>
-                      <h3 className="text-sm font-medium text-gray-700 line-clamp-2 hover:text-blue-600">
-                        {product.name}
-                      </h3>
-                    </Link>
-
-                    <p className="text-xs text-gray-500 line-clamp-2">
-                      {product.description}
-                    </p>
-
-                    <Link
-                      href={`/product/${product.id}`}
-                      className="text-sm text-blue-600 hover:underline"
-                    >
-                      View details
-                    </Link>
-                  </div>
-                </div>
+                  product={product}
+                  viewMode={viewMode}
+                />
               ))}
             </div>
           </div>

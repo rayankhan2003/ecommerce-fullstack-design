@@ -22,8 +22,8 @@ import {
 import Link from 'next/link';
 
 export default function ProductListing() {
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [viewMode, setViewMode] = (useState < 'grid') | ('list' > 'grid');
+  // const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const products = [
     {
